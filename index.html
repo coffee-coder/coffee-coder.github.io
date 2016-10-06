@@ -248,6 +248,135 @@
             
               
                 
+                <a class="post-title-link" href="/2016/10/06/tensor-flow-01/" itemprop="url">
+                  tensor-flow-01
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-06T16:42:40+08:00" content="2016-10-06">
+              2016-10-06
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Tensor-Flow-学习笔记"><a href="#Tensor-Flow-学习笔记" class="headerlink" title="Tensor-Flow 学习笔记"></a>Tensor-Flow 学习笔记</h1><h2 id="tensor-flow-原理"><a href="#tensor-flow-原理" class="headerlink" title="tensor-flow 原理"></a>tensor-flow 原理</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br></pre></td></tr></table></figure>
+<ul>
+<li>启动TensorFlow流程，开始管理各种状态，它有一个隐式的默认的图，可以使用 tf.get_default_graph()。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>graph = tf.get_default_graph()</span><br></pre></td></tr></table></figure>
+<ul>
+<li>TensorFlow图的节点称为 “operation操作” 或者 “ops” ,我们可以使用 graph.get_operations() 看到图中的操作是什么.</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>graph.get_default_graph()</span><br></pre></td></tr></table></figure>
+<ul>
+<li>开始一个简单的计算流</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>m_value = tf.constant(<span class="number">2.0</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>operations = graph.get_operations()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>operations</span><br><span class="line"><span class="comment">## [&lt;tensorflow.python.framework.ops.Operation at 0x1185005d0&gt;] </span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>operations[<span class="number">0</span>].node_def</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Python 变量 m_value 作为一个节点存在， 同时也是图中的一个操作。</li>
+<li>我们对 operations 的操作也验证了这一点， TensorFlow 内部使用 protocol buffer 存储数据，是一种类似 Json 的格式，打印出 node_def 可以看到第一个 protocol buffer.</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/09/30/NLP/Bi-LSTM 实践/" itemprop="url">
                   Bi-LSTM 实践
                 </a>
@@ -366,7 +495,7 @@
   
   
 
-  <article class="post post-type-tags " itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
 
     
       <header class="post-header">
@@ -629,7 +758,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-count">4</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -637,7 +766,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -646,7 +775,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

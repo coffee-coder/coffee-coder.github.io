@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="神经网络," />
+  <meta name="keywords" content="tensor-flow," />
 
 
 
@@ -84,34 +84,34 @@
 
 
 
-<meta name="description" content="标签 ： 神经网络 NER 
+<meta name="description" content="Tensor-Flow 学习笔记tensor-flow 原理1&amp;gt;&amp;gt;&amp;gt; import tensorflow as tf
 
-模型基础1. RNN基本概念：
+启动TensorFlow流程，开始管理各种状态，它有一个隐式的默认的图，可以使用 tf.get_default_graph()。
 
-batch_size : SGD迭代参数使用的样本量
-模型启动
-123456789101112131415161718with tf.Session() as sess:    sess.run(init)    step = 1    while step * batch_size &amp;lt; training_iters:">
+1&amp;gt;&amp;gt;&amp;gt; graph = tf.get_default_graph()
+
+TensorFlow图的节点称为 “o">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Bi-LSTM 实践">
-<meta property="og:url" content="http://yoursite.com/2016/09/30/NLP/Bi-LSTM 实践/index.html">
+<meta property="og:title" content="tensor-flow-01">
+<meta property="og:url" content="http://yoursite.com/2016/10/06/tensor-flow-01/index.html">
 <meta property="og:site_name" content="Yu~Cheng Blog">
-<meta property="og:description" content="标签 ： 神经网络 NER 
+<meta property="og:description" content="Tensor-Flow 学习笔记tensor-flow 原理1&amp;gt;&amp;gt;&amp;gt; import tensorflow as tf
 
-模型基础1. RNN基本概念：
+启动TensorFlow流程，开始管理各种状态，它有一个隐式的默认的图，可以使用 tf.get_default_graph()。
 
-batch_size : SGD迭代参数使用的样本量
-模型启动
-123456789101112131415161718with tf.Session() as sess:    sess.run(init)    step = 1    while step * batch_size &amp;lt; training_iters:">
-<meta property="og:updated_time" content="2016-09-30T08:30:24.000Z">
+1&amp;gt;&amp;gt;&amp;gt; graph = tf.get_default_graph()
+
+TensorFlow图的节点称为 “o">
+<meta property="og:updated_time" content="2016-10-06T10:02:27.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Bi-LSTM 实践">
-<meta name="twitter:description" content="标签 ： 神经网络 NER 
+<meta name="twitter:title" content="tensor-flow-01">
+<meta name="twitter:description" content="Tensor-Flow 学习笔记tensor-flow 原理1&amp;gt;&amp;gt;&amp;gt; import tensorflow as tf
 
-模型基础1. RNN基本概念：
+启动TensorFlow流程，开始管理各种状态，它有一个隐式的默认的图，可以使用 tf.get_default_graph()。
 
-batch_size : SGD迭代参数使用的样本量
-模型启动
-123456789101112131415161718with tf.Session() as sess:    sess.run(init)    step = 1    while step * batch_size &amp;lt; training_iters:">
+1&amp;gt;&amp;gt;&amp;gt; graph = tf.get_default_graph()
+
+TensorFlow图的节点称为 “o">
 
 
 
@@ -132,9 +132,9 @@ batch_size : SGD迭代参数使用的样本量
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/09/30/NLP/Bi-LSTM 实践/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/10/06/tensor-flow-01/"/>
 
-  <title> Bi-LSTM 实践 | Yu~Cheng Blog </title>
+  <title> tensor-flow-01 | Yu~Cheng Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -264,7 +264,7 @@ batch_size : SGD迭代参数使用的样本量
             
             
               
-                Bi-LSTM 实践
+                tensor-flow-01
               
             
           </h1>
@@ -276,8 +276,8 @@ batch_size : SGD迭代参数使用的样本量
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-30T10:03:23+08:00" content="2016-09-30">
-              2016-09-30
+            <time itemprop="dateCreated" datetime="2016-10-06T16:42:40+08:00" content="2016-10-06">
+              2016-10-06
             </time>
           </span>
 
@@ -290,8 +290,8 @@ batch_size : SGD迭代参数使用的样本量
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/NLP/" itemprop="url" rel="index">
-                    <span itemprop="name">NLP</span>
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
                   </a>
                 </span>
 
@@ -323,23 +323,22 @@ batch_size : SGD迭代参数使用的样本量
       
 
       
-        <p>标签 ： 神经网络 NER </p>
-<hr>
-<h2 id="模型基础"><a href="#模型基础" class="headerlink" title="模型基础"></a>模型基础</h2><h3 id="1-RNN"><a href="#1-RNN" class="headerlink" title="1. RNN"></a>1. RNN</h3><p>基本概念：</p>
+        <h1 id="Tensor-Flow-学习笔记"><a href="#Tensor-Flow-学习笔记" class="headerlink" title="Tensor-Flow 学习笔记"></a>Tensor-Flow 学习笔记</h1><h2 id="tensor-flow-原理"><a href="#tensor-flow-原理" class="headerlink" title="tensor-flow 原理"></a>tensor-flow 原理</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br></pre></td></tr></table></figure>
 <ul>
-<li>batch_size : SGD迭代参数使用的样本量</li>
-<li><p>模型启动</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">    sess.run(init)</span><br><span class="line">    step = <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> step * batch_size &lt; training_iters:</span><br><span class="line">        <span class="comment"># 得到训练批次</span></span><br><span class="line">        batch_x, batch_y = mnist.train.next_batch(batch_size)</span><br><span class="line">        <span class="comment"># Reshape 到统一维度</span></span><br><span class="line">        <span class="string">''' </span><br><span class="line">            batch_size -- SGD 参数迭代样本量</span><br><span class="line">            n_steps    -- RNN 序列长度</span><br><span class="line">            n_inputs   -- 特征维度</span><br><span class="line">        '''</span></span><br><span class="line">        batch_x = batch_x.reshape((batch_size, n_steps, n_input))</span><br><span class="line">        <span class="comment"># Run optimization op (backprop)</span></span><br><span class="line">        sess.run(optimizer, feed_dict=&#123;x: batch_x, y: batch_y&#125;)</span><br><span class="line">        acc = sess.run(accuracy, feed_dict=&#123;x: batch_x, y: batch_y&#125;)</span><br><span class="line">        loss = sess.run(cost, feed_dict=&#123;x: batch_x, y: batch_y&#125;)</span><br><span class="line">        step += <span class="number">1</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>accuracy 计算</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">pred = BiRNN(x, weights, biases) <span class="comment"># BiRNN 计算结果</span></span><br><span class="line"><span class="comment"># 定义损失函数</span></span><br><span class="line">cost = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(pred, y))</span><br><span class="line"><span class="comment"># minimize 损失函数</span></span><br><span class="line">optimizer = tf.train.AdamOptimizer(learning_rate=learning_rate).minimize(cost)</span><br><span class="line"><span class="comment"># Evaluate model</span></span><br><span class="line">correct_pred = tf.equal(tf.argmax(pred,<span class="number">1</span>), tf.argmax(y,<span class="number">1</span>))</span><br><span class="line">accuracy = tf.reduce_mean(tf.cast(correct_pred, tf.float32))</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>最简单的 RNN 神经网络形式</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">state = cell.zero_state(...)</span><br><span class="line">outputs = []</span><br><span class="line"><span class="keyword">for</span> input_ <span class="keyword">in</span> inputs:</span><br><span class="line">    output, state = cell(input_, state)</span><br><span class="line">    outputs.append(output)</span><br><span class="line"><span class="keyword">return</span> (outputs, state)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>BiRNN 函数</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">BiRNN</span><span class="params">(x, weights, biases)</span>:</span></span><br><span class="line">    <span class="comment">## 转置</span></span><br><span class="line">    x = tf.transpose(x, [<span class="number">1</span>, <span class="number">0</span>, <span class="number">2</span>])</span><br><span class="line">    <span class="comment"># Reshape 成 2D 矩阵 (n_steps * batch_size, n_input)</span></span><br><span class="line">    x = tf.reshape(x, [<span class="number">-1</span>, n_input])</span><br><span class="line">    <span class="comment"># Split 分割成 n_steps 的 tensors 数组 (batch_size, n_input)</span></span><br><span class="line">    x = tf.split(<span class="number">0</span>, n_steps, x)</span><br><span class="line">    <span class="comment"># Forward direction cell</span></span><br><span class="line">    lstm_fw_cell = rnn_cell.BasicLSTMCell(n_hidden, forget_bias=<span class="number">1.0</span>)</span><br><span class="line">    <span class="comment"># Backward direction cell</span></span><br><span class="line">    lstm_bw_cell = rnn_cell.BasicLSTMCell(n_hidden, forget_bias=<span class="number">1.0</span>)</span><br><span class="line">    <span class="comment"># Get lstm cell output</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        outputs, _, _ = rnn.bidirectional_rnn(lstm_fw_cell, lstm_bw_cell, x,dtype=tf.float32)</span><br><span class="line">    <span class="keyword">except</span> Exception:</span><br><span class="line">        outputs = rnn.bidirectional_rnn(lstm_fw_cell, lstm_bw_cell, x,dtype=tf.float32)</span><br><span class="line">    <span class="comment"># Linear activation, using rnn inner loop last output, 概率返回</span></span><br><span class="line">    <span class="keyword">return</span> tf.matmul(outputs[<span class="number">-1</span>], weights[<span class="string">'out'</span>]) + biases[<span class="string">'out'</span>]</span><br></pre></td></tr></table></figure>
-</li>
+<li>启动TensorFlow流程，开始管理各种状态，它有一个隐式的默认的图，可以使用 tf.get_default_graph()。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>graph = tf.get_default_graph()</span><br></pre></td></tr></table></figure>
+<ul>
+<li>TensorFlow图的节点称为 “operation操作” 或者 “ops” ,我们可以使用 graph.get_operations() 看到图中的操作是什么.</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>graph.get_default_graph()</span><br></pre></td></tr></table></figure>
+<ul>
+<li>开始一个简单的计算流</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>m_value = tf.constant(<span class="number">2.0</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>operations = graph.get_operations()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>operations</span><br><span class="line"><span class="comment">## [&lt;tensorflow.python.framework.ops.Operation at 0x1185005d0&gt;] </span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>operations[<span class="number">0</span>].node_def</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Python 变量 m_value 作为一个节点存在， 同时也是图中的一个操作。</li>
+<li>我们对 operations 的操作也验证了这一点， TensorFlow 内部使用 protocol buffer 存储数据，是一种类似 Json 的格式，打印出 node_def 可以看到第一个 protocol buffer.</li>
 </ul>
 
       
@@ -363,7 +362,7 @@ batch_size : SGD迭代参数使用的样本量
       
         <div class="post-tags">
           
-            <a href="/tags/神经网络/" rel="tag">#神经网络</a>
+            <a href="/tags/tensor-flow/" rel="tag">#tensor-flow</a>
           
         </div>
       
@@ -372,17 +371,13 @@ batch_size : SGD迭代参数使用的样本量
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/08/30/machine-learning/" rel="next" title="机器学习基本概念">
-                <i class="fa fa-chevron-left"></i> 机器学习基本概念
+              <a href="/2016/09/30/NLP/Bi-LSTM 实践/" rel="next" title="Bi-LSTM 实践">
+                <i class="fa fa-chevron-left"></i> Bi-LSTM 实践
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/10/06/tensor-flow-01/" rel="prev" title="tensor-flow-01">
-                tensor-flow-01 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -496,7 +491,7 @@ batch_size : SGD迭代参数使用的样本量
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#模型基础"><span class="nav-number">1.</span> <span class="nav-text">模型基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-RNN"><span class="nav-number">1.1.</span> <span class="nav-text">1. RNN</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Tensor-Flow-学习笔记"><span class="nav-number">1.</span> <span class="nav-text">Tensor-Flow 学习笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#tensor-flow-原理"><span class="nav-number">1.1.</span> <span class="nav-text">tensor-flow 原理</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
