@@ -1,0 +1,688 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="NLP," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="标签 ： seq2seq NLG 
+
+概述   Natural language generation ( NLG ) is the natural language processing task of generating natural language from a machine representation system such as a knowledge base or a lo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="NLG综述">
+<meta property="og:url" content="http://yoursite.com/2017/04/14/NLG综述/index.html">
+<meta property="og:site_name" content="Yu~Cheng Blog">
+<meta property="og:description" content="标签 ： seq2seq NLG 
+
+概述   Natural language generation ( NLG ) is the natural language processing task of generating natural language from a machine representation system such as a knowledge base or a lo">
+<meta property="og:image" content="http://yoursite.com/figure01.png">
+<meta property="og:image" content="http://yoursite.com/figure02.png">
+<meta property="og:image" content="http://yoursite.com/figure05.png">
+<meta property="og:image" content="http://yoursite.com/figure04.png">
+<meta property="og:image" content="http://yoursite.com/figure08.png">
+<meta property="og:image" content="http://yoursite.com/figure06.png">
+<meta property="og:image" content="http://yoursite.com/figure09.png">
+<meta property="og:image" content="http://yoursite.com/figure10.png">
+<meta property="og:image" content="http://yoursite.com/figure11.png">
+<meta property="og:image" content="http://yoursite.com/figure07.png">
+<meta property="og:updated_time" content="2017-04-14T09:06:48.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="NLG综述">
+<meta name="twitter:description" content="标签 ： seq2seq NLG 
+
+概述   Natural language generation ( NLG ) is the natural language processing task of generating natural language from a machine representation system such as a knowledge base or a lo">
+<meta name="twitter:image" content="http://yoursite.com/figure01.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/04/14/NLG综述/"/>
+
+  <title> NLG综述 | Yu~Cheng Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Yu~Cheng Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                NLG综述
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-04-14T16:56:56+08:00" content="2017-04-14">
+              2017-04-14
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>标签 ： seq2seq NLG </p>
+<hr>
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>   <em>Natural language generation</em> ( NLG ) is the natural language processing task of generating natural language from a machine representation system such as a knowledge base or a logical form.(From wikipedia) , NLG 可以看作是 NLU (自然语言理解)的反向过程，在 <em>NLU</em> 中，系统需要将输入的自然语句转换成机器表示形式，而 NLG 则是将考虑如何将概念转换成语言。<br><img src="figure01.png" alt="figure01"><br><img src="figure02.png" alt="figure02"></p>
+<h2 id="相关工作"><a href="#相关工作" class="headerlink" title="相关工作"></a>相关工作</h2><ol>
+<li><p><strong>传统方法</strong></p>
+<ul>
+<li><p>模版生成，如天气预报</p>
+<figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">TempString = <span class="keyword">case</span> (TEMP - AVERAGETEMP)</span><br><span class="line">    <span class="meta">[</span><span class="number">2.0</span> <span class="attr">...</span> <span class="number">2.9</span><span class="meta">]</span>:      比平均温度高非常多。</span><br><span class="line">    <span class="meta">[</span><span class="number">1.0</span> <span class="attr">...</span> <span class="number">1.9</span><span class="meta">]</span>:      比平均温度高很多。</span><br><span class="line">    <span class="meta">[</span><span class="number">0.1</span> <span class="attr">...</span> <span class="number">0.9</span><span class="meta">]</span>:      比平均温度高一点。</span><br><span class="line">    <span class="meta">[</span><span class="number">-0.1</span> <span class="attr">...</span> <span class="number">-0.9</span><span class="meta">]</span>:    比平均温度低一点。</span><br><span class="line">    <span class="meta">[</span><span class="number">-1.0</span> <span class="attr">...</span> <span class="number">-1.9</span><span class="meta">]</span>:    比平均温度低很多。</span><br><span class="line">    <span class="meta">[</span><span class="number">-2.0</span> <span class="attr">...</span> <span class="number">-2.9</span><span class="meta">]</span>:    比平均温度低非常多。</span><br></pre></td></tr></table></figure>
+<p>这些结果都是逐句生成的，准确但是很呆板，我们希望看到的是更自然的表达，因此需要做句子规划。</p>
+</li>
+<li>sentence planning<ul>
+<li>Lexicalisation：选择词和短语来表达概念和关系。</li>
+<li>Aggregation: 把词和短语进行组合。</li>
+<li>Referring expression generation：指称表达生成。<br><img src="figure05.png" alt="figure05"></li>
+</ul>
+</li>
+<li>这三个任务都是独立的，并且是非常困难的<ul>
+<li>Lexical choice ：非常多的选择，比如 “晚饭”，“晚餐”</li>
+<li>Aggregation:是一个词还是多个词？</li>
+<li>Referring expression generation：“这本书”，“一本书”，“他写的书”</li>
+</ul>
+</li>
+<li>随着深度学习的流行，依赖人工设定的特征可以交给模型去生成。</li>
+</ul>
+</li>
+<li><strong>GNMT</strong><ul>
+<li>seq2seq 的典型应用是机器翻译，由于翻译过程中讲究”信达雅”,”信”的过程需要对齐，因此在基础的 encoder-decoder 框架上加入 attention 机制，保证 decoder 的词能够和 encoder 输入的词对齐。<br>  <img src="figure04.png" alt="figure04"></li>
+<li>模型<ul>
+<li>模型比较简单:<ul>
+<li>encoder : x1, x2, …, xM = EncoderRNN(x1, x2, x3, …, xM)</li>
+<li>decoder : P(Y |X) = P(Y |x1, x2, x3, …, xM)</li>
+<li>attention :<br>  <img src="figure08.png" alt="figure08"><br>  就是原先只有 encoder 的最后一个状态输出，现在是一个加权平均，参数主要是在 AttentionFunction , AF 可以是一个线形函数，也可以是非线性神经网络，在 GNMT 中是包含一个隐含层的前向网络。</li>
+</ul>
+</li>
+<li>整体的Framework，采用了 8 层 deep stacked lstm，encoder 的底层是 双向 LSTM ，剩余层是单向 LSTM, GPU 多就是任性 。<br><img src="figure06.png" alt="figure06"></li>
+<li>优化点<ol>
+<li>Quantizable Model and Quantized Inference ：将原先用于 CNN 的模型压缩和训练加速的策略引进到深层 lstm 网络中。</li>
+<li>decoder 阶段采用 beam search</li>
+</ol>
+</li>
+<li>Metrics : BLEU</li>
+</ul>
+</li>
+<li>开源代码<ol>
+<li><a href="https://github.com/google/seq2seq" target="_blank" rel="external">https://github.com/google/seq2seq</a></li>
+</ol>
+</li>
+<li>总结：大数据、深层网络、多GPU并行、就是干!</li>
+</ul>
+</li>
+<li>ACL 2016 基于模版抽取的 NLG 论文 《<em>Towards Constructing Sports News from Live Text Commentary</em>》，针对赛事直播的新闻生成，难度远高于上文提到的任务。 <ul>
+<li>作者一开始也是将直播任务看作是文本摘要的任务，希望从现有文本中抽取信息来生成新闻，文本来源多数是解说的解说词，解说词有很多明显的特点：时序性，短文本，局部冗余。这些特点会导致简单通过文本摘要的方式来抽取特征比较困难。</li>
+<li>面临上述的问题，作者提出以下解决方案：<ul>
+<li>将任务建模为 learning to rank framework，将传统的文本摘要特征和任务特定特征抽取相互结合。</li>
+<li>提出基于概率的句子选择算法来解决语料的局部冗余问题。</li>
+</ul>
+</li>
+<li>建模过程<ul>
+<li>将一场赛事的解说稿看成一个文档集合 {s1, s2, …, sn }，我们需要从中抽取出一些句子来对这场比赛进行总结。句子的数量定长为 B 。</li>
+</ul>
+</li>
+<li>句子表示<ul>
+<li>basic feature: 比较细节，参见文章</li>
+</ul>
+</li>
+<li>句子选择<ul>
+<li>采用 LTR 模型。</li>
+</ul>
+</li>
+<li>一句话总结，就是利用 LTR 从解说稿中选取分数最高的句子，然后把这些句子原封不动的重新组合，他强任他强，清风拂云岗。</li>
+</ul>
+</li>
+<li>《Generating Text with Deep Reinforcement Learning》强化学习在 decoder 阶段的应用，训练 DQN 模型进行解码。<br> <img src="figure09.png" alt="figure09"><ul>
+<li>语言模型本身就是马尔可夫过程的离散形式，称之为马尔可夫链。同时在 GNMT 优化 decoder 中使用的 beam search 是一种动态规划算法，目标是最小化 score function s(Y,X)，如果不做长度正则化的话，结果会偏向于生成短文本。</li>
+<li>在 DQN 中 Bellman equation 近似 beam search 的作用。<br><img src="figure10.png" alt="figure10"></li>
+<li>Reword 则为 BLEU Score。</li>
+<li>具体算法<br><img src="figure11.png" alt="figure11"></li>
+<li>总结：利用强化学习 decoder 是一个非常不错的应用，直接利用 rnn 生成文本，本质上就是最大化生成序列的联合概率，在样本量少的情况下，会收敛于生成一些”保守词”，另外一个问题是评估过程和训练过程并不是 end-to-end 的，所以没有办法进行干预。引入强化学习相当于是端到端的训练，直接将 BLEU 作为 reward，在模型训练的过程中直接优化最终的效果。</li>
+</ul>
+</li>
+</ol>
+<h2 id="评估方式"><a href="#评估方式" class="headerlink" title="评估方式"></a>评估方式</h2><p>评估方式是 NLG 任务比较重要的部分，因此单独介绍，主要针对机器翻译的评估方式。<br>在机器翻译中，依赖参考译文的评价，参考译文就是标准答案，和参考译文越相似，译文质量越高，这个假设是评价算法的基本思想。根据这个指导思想，可以往下有更多的细分，比如从词汇层面和篇章层面，是非语言还是轻语言，或者是重语言的等等，大多数用的都是非语言的评价方法。</p>
+<h3 id="非语言"><a href="#非语言" class="headerlink" title="非语言"></a><strong>非语言</strong></h3><ul>
+<li><p>基于准确率的评价方法 BLEU<br>BLEU( bilingual evaluation understudy) 的基本假设是：如果待评译文和参考译文的共现 n-grams 越多，译文质量越高。计算公式：<br><img src="figure07.png" alt="figure07"><br>  BP是长度小于参考值的惩罚因子，Pn 是 n-gram 的匹配率。</p>
+<ul>
+<li>缺点也很明显，评估方式比较机械，而且 n-gram 的稀疏性 没法解决。</li>
+<li>改进：MBLEU , EBLEU, AMBER 等。</li>
+</ul>
+</li>
+<li><p>基于召回率的评价方法 ROUGE<br>  a. ROUGE-N:基于 n-gram 的共现统计。<br>  b. ROUGE-L:基于 LCS 的共现统计。<br>  c. ROUGE-W:加权 LCS 的共现统计。<br>  d. ROUGE-S:基于 skip-bigram 的共现统计。<br>  e. ROUGE-SU:基于 skip-bigram 加上 unigram-based 的共现统计。</p>
+</li>
+</ul>
+<h3 id="轻语言"><a href="#轻语言" class="headerlink" title="轻语言"></a><strong>轻语言</strong></h3><p>需要利用一些语言信息进行评价，如词性，同义辞典等，著名的算法有 :<br>    METEOR, METEOR-NEXT, TEP-Plus, MaxSim, wpBLE, TESLA, AMBER 等。</p>
+<h3 id="重语言"><a href="#重语言" class="headerlink" title="重语言"></a><strong>重语言</strong></h3><p>则需要对译文进行更多的语法或语意层面的分析，从句法结构，重述，近义，文本蕴含等语言方面评估候选译文和标准译文的相似度，比较著名的算法有 :<br>    ULC, RTE, DCU-LFG<br>缺点是需要对译文做深度的分析和处理，评价的成本比较高，而且处理流程的准确率也会对最终结果有间接影响。</p>
+<p>Reference</p>
+<ol>
+<li>Towards Constructing Sports News from Live Text Commentary</li>
+<li>Google’s Neural Machine Translation System: Bridging the Gap between Human and Machine Translation</li>
+<li>Generating Text with Deep Reinforcement Learning</li>
+</ol>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/NLP/" rel="tag">#NLP</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/04/14/NLP/NLG综述/" rel="next" title="NLG综述">
+                <i class="fa fa-chevron-left"></i> NLG综述
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Yu Cheng" />
+          <p class="site-author-name" itemprop="name">Yu Cheng</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相关工作"><span class="nav-number">2.</span> <span class="nav-text">相关工作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#评估方式"><span class="nav-number">3.</span> <span class="nav-text">评估方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#非语言"><span class="nav-number">3.1.</span> <span class="nav-text">非语言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#轻语言"><span class="nav-number">3.2.</span> <span class="nav-text">轻语言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重语言"><span class="nav-number">3.3.</span> <span class="nav-text">重语言</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yu Cheng</span>
+</div>
+
+<!--<div class="powered-by">
+ 由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div> -->
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
