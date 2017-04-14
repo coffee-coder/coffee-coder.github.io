@@ -294,7 +294,7 @@
           
             <p>标签 ： seq2seq NLG </p>
 <hr>
-<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>   <em>Natural language generation</em> ( NLG ) is the natural language processing task of generating natural language from a machine representation system such as a knowledge base or a logical form.(From wikipedia) , NLG 可以看作是 NLU (自然语言理解)的反向过程，在 <em>NLU</em> 中，系统需要将输入的自然语句转换成机器表示形式，而 NLG 则是将考虑如何将概念转换成语言。<br><img src="/2017/04/14/NLP/NLG综述/figure01.png" alt="This is an example image" title="This is an example image"><br><img src="/2017/04/14/NLP/NLG综述/figure02.png" alt="This is an example image" title="This is an example image"></p>
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>   <em>Natural language generation</em> ( NLG ) is the natural language processing task of generating natural language from a machine representation system such as a knowledge base or a logical form.(From wikipedia) , NLG 可以看作是 NLU (自然语言理解)的反向过程，在 <em>NLU</em> 中，系统需要将输入的自然语句转换成机器表示形式，而 NLG 则是将考虑如何将概念转换成语言。<br><img src="/2017/04/14/NLP/NLG综述/figure01.png" alt="figure01" title="figure01"><br><img src="/2017/04/14/NLP/NLG综述/figure02.png" alt="figure02" title="figure02"></p>
 <h2 id="相关工作"><a href="#相关工作" class="headerlink" title="相关工作"></a>相关工作</h2><ol>
 <li><p><strong>传统方法</strong></p>
 <ul>
@@ -305,7 +305,7 @@
 <li>sentence planning<ul>
 <li>Lexicalisation：选择词和短语来表达概念和关系。</li>
 <li>Aggregation: 把词和短语进行组合。</li>
-<li>Referring expression generation：指称表达生成。<img src="/2017/04/14/NLP/NLG综述/figure05.png" alt="This is an example image" title="This is an example image"></li>
+<li>Referring expression generation：指称表达生成。<img src="/2017/04/14/NLP/NLG综述/figure05.png" alt="figure05" title="figure05"></li>
 </ul>
 </li>
 <li>这三个任务都是独立的，并且是非常困难的<ul>
@@ -318,16 +318,16 @@
 </ul>
 </li>
 <li><strong>GNMT</strong><ul>
-<li>seq2seq 的典型应用是机器翻译，由于翻译过程中讲究”信达雅”,”信”的过程需要对齐，因此在基础的 encoder-decoder 框架上加入 attention 机制，保证 decoder 的词能够和 encoder 输入的词对齐。  <img src="/2017/04/14/NLP/NLG综述/figure04.png" alt="This is an example image" title="This is an example image"></li>
+<li>seq2seq 的典型应用是机器翻译，由于翻译过程中讲究”信达雅”,”信”的过程需要对齐，因此在基础的 encoder-decoder 框架上加入 attention 机制，保证 decoder 的词能够和 encoder 输入的词对齐。  <img src="/2017/04/14/NLP/NLG综述/figure04.png" alt="figure04" title="figure04"></li>
 <li>模型<ul>
 <li>模型比较简单:<ul>
 <li>encoder : x1, x2, …, xM = EncoderRNN(x1, x2, x3, …, xM)</li>
 <li>decoder : P(Y |X) = P(Y |x1, x2, x3, …, xM)</li>
-<li>attention :   <img src="/2017/04/14/NLP/NLG综述/figure08.png" alt="This is an example image" title="This is an example image">
+<li>attention :   <img src="/2017/04/14/NLP/NLG综述/figure08.png" alt="figure08" title="figure08">
   就是原先只有 encoder 的最后一个状态输出，现在是一个加权平均，参数主要是在 AttentionFunction , AF 可以是一个线形函数，也可以是非线性神经网络，在 GNMT 中是包含一个隐含层的前向网络。</li>
 </ul>
 </li>
-<li>整体的Framework，采用了 8 层 deep stacked lstm，encoder 的底层是 双向 LSTM ，剩余层是单向 LSTM, GPU 多就是任性 。<img src="/2017/04/14/NLP/NLG综述/figure06.png" alt="This is an example image" title="This is an example image"></li>
+<li>整体的Framework，采用了 8 层 deep stacked lstm，encoder 的底层是 双向 LSTM ，剩余层是单向 LSTM, GPU 多就是任性 。<img src="/2017/04/14/NLP/NLG综述/figure06.png" alt="figure06" title="figure06"></li>
 <li>优化点<ol>
 <li>Quantizable Model and Quantized Inference ：将原先用于 CNN 的模型压缩和训练加速的策略引进到深层 lstm 网络中。</li>
 <li>decoder 阶段采用 beam search</li>
@@ -365,12 +365,12 @@
 <li>一句话总结，就是利用 LTR 从解说稿中选取分数最高的句子，然后把这些句子原封不动的重新组合，他强任他强，清风拂云岗。</li>
 </ul>
 </li>
-<li>《Generating Text with Deep Reinforcement Learning》强化学习在 decoder 阶段的应用，训练 DQN 模型进行解码。 <img src="/2017/04/14/NLP/NLG综述/figure09.png" alt="This is an example image" title="This is an example image">
+<li>《Generating Text with Deep Reinforcement Learning》强化学习在 decoder 阶段的应用，训练 DQN 模型进行解码。 <img src="/2017/04/14/NLP/NLG综述/figure09.png" alt="figure09" title="figure09">
 <ul>
 <li>语言模型本身就是马尔可夫过程的离散形式，称之为马尔可夫链。同时在 GNMT 优化 decoder 中使用的 beam search 是一种动态规划算法，目标是最小化 score function s(Y,X)，如果不做长度正则化的话，结果会偏向于生成短文本。</li>
-<li>在 DQN 中 Bellman equation 近似 beam search 的作用。<img src="/2017/04/14/NLP/NLG综述/figure10.png" alt="This is an example image" title="This is an example image"></li>
+<li>在 DQN 中 Bellman equation 近似 beam search 的作用。<img src="/2017/04/14/NLP/NLG综述/figure10.png" alt="figure10" title="figure10"></li>
 <li>Reword 则为 BLEU Score。</li>
-<li>具体算法<img src="/2017/04/14/NLP/NLG综述/figure11.png" alt="This is an example image" title="This is an example image"></li>
+<li>具体算法<img src="/2017/04/14/NLP/NLG综述/figure11.png" alt="figure11" title="figure11"></li>
 <li>总结：利用强化学习 decoder 是一个非常不错的应用，直接利用 rnn 生成文本，本质上就是最大化生成序列的联合概率，在样本量少的情况下，会收敛于生成一些”保守词”，另外一个问题是评估过程和训练过程并不是 end-to-end 的，所以没有办法进行干预。引入强化学习相当于是端到端的训练，直接将 BLEU 作为 reward，在模型训练的过程中直接优化最终的效果。</li>
 </ul>
 </li>
@@ -378,7 +378,7 @@
 <h2 id="评估方式"><a href="#评估方式" class="headerlink" title="评估方式"></a>评估方式</h2><p>评估方式是 NLG 任务比较重要的部分，因此单独介绍，主要针对机器翻译的评估方式。<br>在机器翻译中，依赖参考译文的评价，参考译文就是标准答案，和参考译文越相似，译文质量越高，这个假设是评价算法的基本思想。根据这个指导思想，可以往下有更多的细分，比如从词汇层面和篇章层面，是非语言还是轻语言，或者是重语言的等等，大多数用的都是非语言的评价方法。</p>
 <h3 id="非语言"><a href="#非语言" class="headerlink" title="非语言"></a><strong>非语言</strong></h3><ul>
 <li><p>基于准确率的评价方法 BLEU<br>BLEU( bilingual evaluation understudy) 的基本假设是：如果待评译文和参考译文的共现 n-grams 越多，译文质量越高。计算公式：</p>
-<img src="/2017/04/14/NLP/NLG综述/figure07.png" alt="This is an example image" title="This is an example image">
+<img src="/2017/04/14/NLP/NLG综述/figure07.png" alt="figure07" title="figure07">
 <p>  BP是长度小于参考值的惩罚因子，Pn 是 n-gram 的匹配率。</p>
 <ul>
 <li>缺点也很明显，评估方式比较机械，而且 n-gram 的稀疏性 没法解决。</li>
