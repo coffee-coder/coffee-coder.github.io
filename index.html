@@ -248,6 +248,146 @@
             
               
                 
+                <a class="post-title-link" href="/2017/04/17/database-invest/" itemprop="url">
+                  Database Invest
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-04-17T17:03:53+08:00" content="2017-04-17">
+              2017-04-17
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Different-Databases"><a href="#Different-Databases" class="headerlink" title="Different Databases"></a>Different Databases</h1><h3 id="Relation-vs-Document"><a href="#Relation-vs-Document" class="headerlink" title="Relation vs Document"></a>Relation vs Document</h3><p>Relational databases generally store data in separate tables that are defined by the programmer, and a single object may be spread across several tables. Document databases store all information for a given object in a single instance in the database,and every stored object can be different from every other.</p>
+<p>For example, the following is a document, encoded in JSON:</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"FirstName"</span>: <span class="string">"Bob"</span>, </span><br><span class="line">    <span class="attr">"Address"</span>: <span class="string">"5 Oak St."</span>, </span><br><span class="line">    <span class="attr">"Hobby"</span>: <span class="string">"sailing"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>encoded in XML</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">contact</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">firstname</span>&gt;</span>Bob<span class="tag">&lt;/<span class="name">firstname</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">lastname</span>&gt;</span>Smith<span class="tag">&lt;/<span class="name">lastname</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">phone</span> <span class="attr">type</span>=<span class="string">"Cell"</span>&gt;</span>(123) 555-0178<span class="tag">&lt;/<span class="name">phone</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">phone</span> <span class="attr">type</span>=<span class="string">"Work"</span>&gt;</span>(890) 555-0133<span class="tag">&lt;/<span class="name">phone</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">address</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">type</span>&gt;</span>Home<span class="tag">&lt;/<span class="name">type</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">street1</span>&gt;</span>123 Back St.<span class="tag">&lt;/<span class="name">street1</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">city</span>&gt;</span>Boys<span class="tag">&lt;/<span class="name">city</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">state</span>&gt;</span>AR<span class="tag">&lt;/<span class="name">state</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">zip</span>&gt;</span>32225<span class="tag">&lt;/<span class="name">zip</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">country</span>&gt;</span>US<span class="tag">&lt;/<span class="name">country</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">address</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">contact</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>Keys</p>
+<ul>
+<li>This key is a simple identifier (or ID), typically a string, a URI, or a path</li>
+<li>The key can be used to retrieve the document from the database. </li>
+<li>Typically the database retains an index on the key to speed up document retrieval, and in some cases the key is required to create or insert the document into the database.</li>
+</ul>
+<p>Retrieval</p>
+<ol>
+<li>Simple key-to-document lookup that can be used to retrieve a document</li>
+<li>API or query language that allows the user to retrieve documents based on content (or metadata)</li>
+<li>Document stores use the metadata in the document to classify the content, allowing them, for instance, to understand that one series of digits is a phone number, and another is a postal code. This allows them to search on those types of data, for instance, all phone numbers containing 555, which would ignore the zip code 55555.</li>
+</ol>
+<p>Relations</p>
+<ol>
+<li>A document-oriented database is a specialized <strong>key-value</strong> store, which itself is another NoSQL database category.</li>
+<li>In a simple key-value store, the document content is opaque. A document-oriented database provides APIs or a query/update language that exposes the ability to query or update based on the internal structure in the document. </li>
+<li>In a relational database, data is first categorized into a number of predefined types, and tables are created to hold individual entries, or records, of each type. </li>
+<li>A key concept in the relational design is that any data that may be repeated is normally placed in its own table, and if these instances are related to each other, a column is selected to group them together, the foreign key. This design is known as database normalization.</li>
+<li>A key difference between the document-oriented and relational models is that the data formats are not predefined in the document case.</li>
+</ol>
+<h3 id="Graph-vs-Document"><a href="#Graph-vs-Document" class="headerlink" title="Graph vs Document"></a>Graph vs Document</h3><p>Graph databases are based on graph theory, and employ nodes, edges, and properties.</p>
+<ol>
+<li>That is, having selected a user, the pointer can be followed directly to the email records, there is no need to search the email table to find the matching records. </li>
+<li>For example, if one searches for all of the email addresses for users in area code “311”, the engine would first perform a conventional search to find the users in “311”, but then retrieve the email addresses by following the links found in those records. <ul>
+<li>A relational database would first find all the users in “311”, extract a list of the pk’s, perform another search for any records in the email table with those pk’s, and link the matching records together. </li>
+</ul>
+</li>
+<li>graph vs document<img src="/2017/04/17/database-invest/MongoDB.png" alt="MongoDB" title="MongoDB">
+<img src="/2017/04/17/database-invest/OrientDB.png" alt="OrientDB" title="OrientDB">
+</li>
+</ol>
+<h3 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h3><ol>
+<li>relation vs document : key-value</li>
+<li>relation vs graph : kkv</li>
+<li>document vs  graph ： kkv - kv</li>
+</ol>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+<li><a href="http://orientdb.com/orientdb-vs-mongodb/" target="_blank" rel="external">http://orientdb.com/orientdb-vs-mongodb/</a></li>
+<li><a href="http://www.oschina.net/news/63333/performance-comparison-between-arangodb" target="_blank" rel="external">http://www.oschina.net/news/63333/performance-comparison-between-arangodb</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Document-oriented_database" target="_blank" rel="external">https://en.wikipedia.org/wiki/Document-oriented_database</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Graph_database" target="_blank" rel="external">https://en.wikipedia.org/wiki/Graph_database</a><br><a href="https://en.wikipedia.org/wiki/ACID#Atomicity_failure" target="_blank" rel="external">https://en.wikipedia.org/wiki/ACID#Atomicity_failure</a></li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/04/14/NLP/NLG综述/" itemprop="url">
                   NLG综述
                 </a>
@@ -768,8 +908,8 @@
         
           
             <h2 id="生成式模型"><a href="#生成式模型" class="headerlink" title="生成式模型"></a>生成式模型</h2><ol>
-<li>贝叶斯模型</li>
-<li>HMM</li>
+<li>贝叶斯模型.</li>
+<li>HMM.</li>
 </ol>
 <h2 id="判别式模型"><a href="#判别式模型" class="headerlink" title="判别式模型"></a>判别式模型</h2><ol>
 <li>CRF</li>
@@ -955,7 +1095,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">5</span>
+              <span class="site-state-item-count">6</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -972,7 +1112,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
