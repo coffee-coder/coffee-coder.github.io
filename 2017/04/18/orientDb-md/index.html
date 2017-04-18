@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="tensor-flow," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -84,34 +84,22 @@
 
 
 
-<meta name="description" content="Tensor-Flow 学习笔记tensor-flow 原理1&amp;gt;&amp;gt;&amp;gt; import tensorflow as tf
-
-启动TensorFlow流程，开始管理各种状态，它有一个隐式的默认的图，可以使用 tf.get_default_graph()。
-
-1&amp;gt;&amp;gt;&amp;gt; graph = tf.get_default_graph()
-
-TensorFlow图的节点称为 “o">
+<meta name="description" content="Let’s Begin
+Create Schema
+123456CREATE DATABASE PLOCAL:/opt/orientdb/databases/sales;CREATE CLASS Customer; CREATE PROPERTY Customer.id integer; CREATE PROPERTY Customer.name String;CREATE PROPERTY Cu">
 <meta property="og:type" content="article">
-<meta property="og:title" content="tensor-flow-01">
-<meta property="og:url" content="http://yoursite.com/2016/10/06/tensor-flow-01/index.html">
+<meta property="og:title" content="orientDb.md">
+<meta property="og:url" content="http://yoursite.com/2017/04/18/orientDb-md/index.html">
 <meta property="og:site_name" content="Yu~Cheng Blog">
-<meta property="og:description" content="Tensor-Flow 学习笔记tensor-flow 原理1&amp;gt;&amp;gt;&amp;gt; import tensorflow as tf
-
-启动TensorFlow流程，开始管理各种状态，它有一个隐式的默认的图，可以使用 tf.get_default_graph()。
-
-1&amp;gt;&amp;gt;&amp;gt; graph = tf.get_default_graph()
-
-TensorFlow图的节点称为 “o">
-<meta property="og:updated_time" content="2017-04-14T08:48:53.000Z">
+<meta property="og:description" content="Let’s Begin
+Create Schema
+123456CREATE DATABASE PLOCAL:/opt/orientdb/databases/sales;CREATE CLASS Customer; CREATE PROPERTY Customer.id integer; CREATE PROPERTY Customer.name String;CREATE PROPERTY Cu">
+<meta property="og:updated_time" content="2017-04-18T03:54:52.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="tensor-flow-01">
-<meta name="twitter:description" content="Tensor-Flow 学习笔记tensor-flow 原理1&amp;gt;&amp;gt;&amp;gt; import tensorflow as tf
-
-启动TensorFlow流程，开始管理各种状态，它有一个隐式的默认的图，可以使用 tf.get_default_graph()。
-
-1&amp;gt;&amp;gt;&amp;gt; graph = tf.get_default_graph()
-
-TensorFlow图的节点称为 “o">
+<meta name="twitter:title" content="orientDb.md">
+<meta name="twitter:description" content="Let’s Begin
+Create Schema
+123456CREATE DATABASE PLOCAL:/opt/orientdb/databases/sales;CREATE CLASS Customer; CREATE PROPERTY Customer.id integer; CREATE PROPERTY Customer.name String;CREATE PROPERTY Cu">
 
 
 
@@ -132,9 +120,9 @@ TensorFlow图的节点称为 “o">
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/10/06/tensor-flow-01/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/04/18/orientDb-md/"/>
 
-  <title> tensor-flow-01 | Yu~Cheng Blog </title>
+  <title> orientDb.md | Yu~Cheng Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -264,7 +252,7 @@ TensorFlow图的节点称为 “o">
             
             
               
-                tensor-flow-01
+                orientDb.md
               
             
           </h1>
@@ -276,30 +264,11 @@ TensorFlow图的节点称为 “o">
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-06T16:42:40+08:00" content="2016-10-06">
-              2016-10-06
+            <time itemprop="dateCreated" datetime="2017-04-18T11:30:10+08:00" content="2017-04-18">
+              2017-04-18
             </time>
           </span>
 
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">学习笔记</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
           
 
           
@@ -323,23 +292,23 @@ TensorFlow图的节点称为 “o">
       
 
       
-        <h1 id="Tensor-Flow-学习笔记"><a href="#Tensor-Flow-学习笔记" class="headerlink" title="Tensor-Flow 学习笔记"></a>Tensor-Flow 学习笔记</h1><h2 id="tensor-flow-原理"><a href="#tensor-flow-原理" class="headerlink" title="tensor-flow 原理"></a>tensor-flow 原理</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br></pre></td></tr></table></figure>
-<ul>
-<li>启动TensorFlow流程，开始管理各种状态，它有一个隐式的默认的图，可以使用 tf.get_default_graph()。</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>graph = tf.get_default_graph()</span><br></pre></td></tr></table></figure>
-<ul>
-<li>TensorFlow图的节点称为 “operation操作” 或者 “ops” ,我们可以使用 graph.get_operations() 看到图中的操作是什么.</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>graph.get_default_graph()</span><br></pre></td></tr></table></figure>
-<ul>
-<li>开始一个简单的计算流</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>m_value = tf.constant(<span class="number">2.0</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>operations = graph.get_operations()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>operations</span><br><span class="line"><span class="comment">## [&lt;tensorflow.python.framework.ops.Operation at 0x1185005d0&gt;] </span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>operations[<span class="number">0</span>].node_def</span><br></pre></td></tr></table></figure>
-<ul>
-<li>Python 变量 m_value 作为一个节点存在， 同时也是图中的一个操作。</li>
-<li>我们对 operations 的操作也验证了这一点， TensorFlow 内部使用 protocol buffer 存储数据，是一种类似 Json 的格式，打印出 node_def 可以看到第一个 protocol buffer.</li>
-</ul>
+        <h2 id="Let’s-Begin"><a href="#Let’s-Begin" class="headerlink" title="Let’s Begin"></a>Let’s Begin</h2><ol>
+<li><p>Create Schema</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">DATABASE</span> PLOCAL:/opt/orientdb/<span class="keyword">databases</span>/sales;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">CLASS</span> Customer; </span><br><span class="line"><span class="keyword">CREATE</span> PROPERTY Customer.id <span class="built_in">integer</span>; </span><br><span class="line"><span class="keyword">CREATE</span> PROPERTY Customer.name <span class="keyword">String</span>;</span><br><span class="line"><span class="keyword">CREATE</span> PROPERTY Customer.age <span class="built_in">integer</span>;</span><br><span class="line"><span class="keyword">ALTER</span> PROPERTY Customer.name MANDATORY <span class="literal">TRUE</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Vertex Class &amp; Edge Class</p>
+ <figure class="highlight monkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">CREATE <span class="class"><span class="keyword">CLASS</span> <span class="title">Entity</span> <span class="keyword">EXTENDS</span> <span class="title">V</span>;</span></span><br><span class="line">CREATE <span class="class"><span class="keyword">CLASS</span> <span class="title">Brand</span> <span class="keyword">EXTENDS</span> <span class="title">Entity</span>;</span></span><br><span class="line">CREATE <span class="class"><span class="keyword">CLASS</span> <span class="title">Product</span> <span class="keyword">EXTENDS</span> <span class="title">Entity</span>;</span></span><br><span class="line">CREATE <span class="class"><span class="keyword">CLASS</span> <span class="title">Hyponymy</span> <span class="keyword">EXTENDS</span> <span class="title">E</span>; </span></span><br><span class="line">CREATE <span class="class"><span class="keyword">CLASS</span> <span class="title">Synonymy</span> <span class="keyword">EXTENDS</span> <span class="title">E</span>;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Vertex Instance</p>
+ <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> VERTEX Brand <span class="keyword">SET</span> <span class="keyword">name</span> = <span class="string">'nike'</span>, <span class="keyword">category</span> = <span class="string">'0'</span>;</span><br><span class="line"><span class="keyword">CREATE</span> VERTEX Brand <span class="keyword">SET</span> <span class="keyword">name</span> = <span class="string">'耐克'</span>, <span class="keyword">category</span> = <span class="string">'0'</span>;</span><br><span class="line"><span class="keyword">CREATE</span> VERTEX Product <span class="keyword">SET</span> <span class="keyword">name</span> = <span class="string">'T恤'</span>, <span class="keyword">category</span> = <span class="string">'0'</span></span><br><span class="line"><span class="keyword">CREATE</span> VERTEX Product <span class="keyword">SET</span> <span class="keyword">name</span> = <span class="string">'卫衣'</span>, <span class="keyword">category</span> = <span class="string">'0'</span></span><br><span class="line"><span class="keyword">MOVE</span> VERTEX(<span class="keyword">SELECT</span> <span class="keyword">FROM</span> V <span class="keyword">WHERE</span> <span class="keyword">name</span>=<span class="string">'耐克'</span>) <span class="keyword">TO</span> <span class="keyword">CLASS</span>:Product;</span><br><span class="line"><span class="keyword">DELETE</span> VERTEX Brand <span class="keyword">WHERE</span> <span class="keyword">name</span> = <span class="string">'阿迪达斯'</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Edge  Instance</p>
+ <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> EDGE Synonymy <span class="keyword">FROM</span> (<span class="keyword">select</span> <span class="keyword">from</span> Brand <span class="keyword">where</span> <span class="keyword">name</span> = <span class="string">'nike'</span> <span class="keyword">TO</span> (<span class="keyword">select</span> <span class="keyword">from</span> v <span class="keyword">where</span> <span class="keyword">name</span>=<span class="string">'耐克'</span>) <span class="keyword">SET</span> <span class="keyword">name</span>=<span class="string">"同义关系"</span>;</span><br><span class="line"><span class="keyword">CREATE</span> EDGE Hyponymy <span class="keyword">FROM</span> (<span class="keyword">select</span> <span class="keyword">from</span> Brand <span class="keyword">where</span> <span class="keyword">name</span> = <span class="string">'华为'</span> <span class="keyword">TO</span> (<span class="keyword">select</span> <span class="keyword">from</span> v <span class="keyword">where</span> <span class="keyword">name</span>=<span class="string">'荣耀'</span>) <span class="keyword">SET</span> <span class="keyword">name</span>=<span class="string">"上下位关系"</span>;</span><br><span class="line"><span class="keyword">UPDATE</span> EDGE Synonymy <span class="keyword">SET</span> <span class="keyword">out</span> = (<span class="keyword">SELECT</span> <span class="keyword">FROM</span> Brand <span class="keyword">WHERE</span> <span class="keyword">name</span> = <span class="string">'小米'</span>) <span class="keyword">WHERE</span> <span class="keyword">name</span> = <span class="string">'同义关系'</span>；</span><br><span class="line"><span class="keyword">DELETE</span> EDGE <span class="keyword">FROM</span> #<span class="number">11</span>:<span class="number">2</span> <span class="keyword">TO</span> #<span class="number">11</span>:<span class="number">10</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Create Cluster</p>
+ <figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">orientdb&gt; </span>CREATE CLUSTER Entitys<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
 
       
     </div>
@@ -360,28 +329,18 @@ TensorFlow图的节点称为 “o">
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/tensor-flow/" rel="tag">#tensor-flow</a>
-          
-        </div>
-      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/09/30/NLP/Bi-LSTM 实践/" rel="next" title="Bi-LSTM 实践">
-                <i class="fa fa-chevron-left"></i> Bi-LSTM 实践
+              <a href="/2017/04/17/database-invest/" rel="next" title="Database Invest">
+                <i class="fa fa-chevron-left"></i> Database Invest
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/04/14/NLP/NLG综述/" rel="prev" title="NLG综述">
-                NLG综述 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -495,7 +454,7 @@ TensorFlow图的节点称为 “o">
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Tensor-Flow-学习笔记"><span class="nav-number">1.</span> <span class="nav-text">Tensor-Flow 学习笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#tensor-flow-原理"><span class="nav-number">1.1.</span> <span class="nav-text">tensor-flow 原理</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Let’s-Begin"><span class="nav-number">1.</span> <span class="nav-text">Let’s Begin</span></a></li></ol></div>
             
           </div>
         </section>
